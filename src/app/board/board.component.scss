@@ -1,5 +1,6 @@
 :host {
   display: flex;
+  justify-content: center;
   .container {
     margin-top: 2em;
     background-color: rgba(0, 0, 0, 0.3);
@@ -11,7 +12,7 @@
     justify-content: space-around;
     align-items: center;
     h1, h2{
-      margin-top: 0;
+      margin-top: 0.5em;
       color: #183246;
       font-size: 32px;
       font-family: "Nunito", sans-serif;
