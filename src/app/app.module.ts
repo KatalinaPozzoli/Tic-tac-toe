@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TuiRootModule, TuiDialogModule } from '@taiga-ui/core';
+import {TuiRootModule, TuiDialogModule, TuiButtonModule} from '@taiga-ui/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,13 +14,14 @@ import { BoardComponent } from './board/board.component';
     SquareComponent,
     BoardComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-      TuiRootModule,
-      BrowserAnimationsModule,
-      TuiDialogModule
-],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        TuiRootModule,
+        BrowserAnimationsModule,
+        TuiDialogModule,
+        TuiButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {TuiDialogService} from '@taiga-ui/core';
+import {Component, Inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import { TuiDialogService} from '@taiga-ui/core';
 
 @Component({
   selector: 'app-board',
@@ -7,9 +7,11 @@ import {TuiDialogService} from '@taiga-ui/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
+  @ViewChild('Dialog', {read: TemplateRef, static: true }) dialogTemplate: TemplateRef<any>;
   squares: any[];
   xIsNext: boolean;
   winner: boolean;
+  winnerGame: any;
   constructor(@Inject(TuiDialogService) private readonly dialogService: TuiDialogService) {}
 
   ngOnInit(): void {
@@ -37,6 +39,8 @@ export class BoardComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+
+  // tslint:disable-next-line:typedef
   calculateWinner() {
     const lines = [
       [0, 1, 2],
@@ -56,8 +60,9 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.winnerGame =  this.squares[a];
         this.winner = true;
-        this.dialogService.open(`${this.squares[a]} is the winner` ).subscribe();
+        this.dialogService.open(this.dialogTemplate).subscribe(response => console.log(response));
       }
     }
     return false;

@@ -11,3 +11,9 @@
     </app-square>
   </main>
 </div>
+<ng-template #Dialog let-close="completeWith">
+ <h1> {{winnerGame}} won the game </h1>
+  <button tuiButton type="button" size="m" (click)="close('Hello')">
+Rematch
+  </button>
+</ng-template>
